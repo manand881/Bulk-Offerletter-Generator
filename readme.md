@@ -14,3 +14,7 @@ Jhon Doe,Front End Developer,13-01-2021
 ```
 
 * Run the `.exe` file to generate the Offer Letter. A `.pdf` will be created for each applicant
+
+## Download
+
+To download the Program, use this [Link](https://github.com/manand881/Bulk-Offerletter-Generator/archive/master.zip)
