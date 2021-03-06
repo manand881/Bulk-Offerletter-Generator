@@ -13,4 +13,4 @@ Anand,Python Developer,12-01-2021
 Jhon Doe,Front End Developer,13-01-2021
 ```
 
-* and run the `.exe` file to generate the Offer Letter. A `.pdf` will be created 
+* Run the `.exe` file to generate the Offer Letter. A `.pdf` will be created for each applicant
