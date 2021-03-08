@@ -4,7 +4,8 @@ import sys
 import ctypes
 import datetime
 import comtypes.client 
-from docx import Document 
+from docx import Document
+from num2words import num2words
 
 wdFormatPDF = 17
 
@@ -38,6 +39,7 @@ for line in Lines:
     Name=details[0]
     Position=details[1]
     DateOfJoining=details[2]
+    Term=details[3]
     if "\n" in DateOfJoining:
         DateOfJoining=DateOfJoining[:-1]
     DateOfJoining=datetime.datetime.strptime(DateOfJoining, '%d-%m-%Y').date()
@@ -61,6 +63,9 @@ for line in Lines:
     DateRegex = re.compile(r"ReplaceDate")
     ReplaceDateRegex = TempDate
 
+    TermRegex = re.compile(r"ReplaceTerm")
+    ReplaceTermRegex = "("+Term+")"+" "+num2words(Term)+" months"
+    
     try:
         filename = "Lok Samvad Offer Letter.docx"
         doc = Document(filename)
@@ -72,6 +77,7 @@ for line in Lines:
     docx_replace_regex(doc, NameRegex , ReplaceNameRegex)
     docx_replace_regex(doc, PositionRegex , ReplacePositionRegex)
     docx_replace_regex(doc, DateRegex , ReplaceDateRegex)
+    docx_replace_regex(doc, TermRegex , ReplaceTermRegex)
     OutputFileName=Name+" "+Position+" Offer Letter"
     doc.save(OutputFileName+".docx")
     in_file = os.path.abspath(OutputFileName+".docx")
